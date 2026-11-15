@@ -1,0 +1,79 @@
+# Papers shown in the Research section, in the order listed here.
+#
+# Fields:
+#   title            Paper title
+#   coauthors        List of coauthors (leave empty [] for solo papers)
+#   year             Year of the latest version (optional)
+#   version          Text for "Latest version: ..." (optional)
+#   status           published | accepted | revise and resubmit | under review | working paper | work in progress
+#   venue            Journal name, once published or accepted
+#   pdf              Path to a PDF uploaded to static/files/ (e.g. "files/my-paper.pdf")
+#   link             External link: DOI, SSRN, journal page (optional)
+#   abstract         One-paragraph abstract
+#   job_market_paper true for the job market paper only
+
+- title: "Flights to Safety in Local Currency Corporate Bonds: Local Investors in Emerging Markets"
+  coauthors: []
+  year: 2026
+  status: "working paper"
+  venue: ""
+  pdf: "files/Ma_JMP.pdf"
+  link: ""
+  job_market_paper: true
+  abstract: >-
+    This paper studies the transmission of global financial shocks to local currency corporate
+    bonds in emerging markets. I find that local currency corporate bonds are the most insulated
+    emerging market asset class from global risk factors: local currency credit spreads tighten
+    relative to the local risk-free benchmark when global risks rise. Using security-level holding
+    composition data from Indonesia, I document strong inflows from local mutual funds and banks
+    into local currency corporate bonds during periods of elevated global risk. Following a
+    tightening of global financial conditions, local currency corporate bonds with stronger
+    safe-haven demand from these price-sensitive local investors experience a greater compression
+    of their yield spreads. These findings highlight the importance of understanding the growing
+    role of local investors in shaping emerging market financial conditions and fluctuations in
+    borrowing costs.
+
+- title: "The Foreign Dollar Corporate Bond Pricing Puzzle"
+  coauthors: []
+  status: "working paper"
+  venue: ""
+  pdf: ""
+  link: ""
+  job_market_paper: false
+  abstract: >-
+    This paper documents large differences in the price dynamics of dollar-denominated corporate
+    bonds issued by non-US and US firms. Foreign dollar corporate bonds exhibit larger credit
+    spreads, return volatility, drawdowns in crises, and spillovers from the Fed's domestic
+    corporate bond purchase programs compared to domestic bonds with similar characteristics. I
+    decompose this pricing discrepancy into three theoretically plausible channels and empirically
+    show that investor composition, rather than default timing or safety premium, provides a
+    unified explanation of the pricing anomaly of foreign dollar corporate bonds. Using
+    institutional security holdings data, I show that mutual funds have greater preferences for
+    foreign bonds than insurers and pension funds, and that foreign bonds tend to have a higher
+    mutual fund holdings share. I further establish that the amplified price fluctuations of
+    foreign dollar corporate bonds can be causally attributed to their higher mutual fund holdings
+    share. Investor heterogeneity can also account for one-half of the observed wedge between
+    foreign and domestic credit spreads. Overall, the disproportionate mutual fund demand is a
+    source of risks that affect the equilibrium price dynamics of foreign dollar corporate bonds.
+
+- title: "The Valuation Effects of Tariff Policy Changes"
+  coauthors: ["Cian Allen (IMF)", "Rudolfs Bems (IMF)", "Roman Merga (IMF)"]
+  status: "working paper"
+  venue: ""
+  pdf: ""
+  link: ""
+  job_market_paper: false
+  abstract: >-
+    This paper empirically examines the impact of tariff policy changes on net foreign assets and
+    quantifies the contribution of valuation effects. We show that tariffs generate significant
+    and positive valuation changes on the existing stock of external financial positions. Based on
+    tariff policy changes in 59 countries from 1980-2022, we estimate the valuation effects of
+    tariff increases to be 10 percent of GDP, outweighing the impact of current account adjustment
+    on net foreign assets. The key mechanism is the tariff-induced decline in domestic risky asset
+    prices, which revalues the gross position of external liabilities. These valuation changes are
+    entirely attributed to shifts in the market values of FDI and portfolio investment, as the
+    exchange rate responses to tariffs have negligible valuation effects. We also show that the
+    valuation effects of tariffs can affect long-term external adjustment. We discuss the
+    intertemporal substitution channel through which domestic agents direct valuation gains on
+    external financial positions to domestic savings in response to associated terms of trade
+    deterioration and real exchange rate appreciation.

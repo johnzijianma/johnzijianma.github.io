@@ -1,0 +1,15 @@
+<script>
+  (function () {
+    // Abstracts are in the page for everyone; with JavaScript on, they fold behind a toggle.
+    document.querySelectorAll(".abs-toggle").forEach(function (b) {
+      var t = document.getElementById(b.getAttribute("aria-controls"));
+      if (!t) return;
+      b.hidden = false;
+      t.hidden = b.getAttribute("aria-expanded") !== "true";
+      b.addEventListener("click", function () {
+        t.hidden = !t.hidden;
+        b.setAttribute("aria-expanded", t.hidden ? "false" : "true");
+      });
+    });
+  })();
+</script>

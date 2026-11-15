@@ -1,0 +1,11 @@
+# {{ site.Params.author }}
+
+> {{ site.Params.author }} is a {{ site.Params.position }} at {{ site.Params.institution }} whose research focuses on international finance, using large-scale micro data to study macroeconomic and financial questions in international capital markets.
+
+- [Home]({{ site.BaseURL }}): bio and research
+- [CV]({{ site.Params.cv | absURL }})
+{{- range where site.Data.papers "job_market_paper" true }}
+- [Job market paper: {{ .title }}]({{ .pdf | absURL }})
+{{- end }}
+- [Research]({{ site.BaseURL }}#research): job market paper and working papers, with abstracts
+- Contact: {{ site.Params.email }}

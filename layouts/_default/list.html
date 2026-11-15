@@ -1,0 +1,14 @@
+{{ define "main" }}
+<section class="page">
+  <h2 class="page-title">{{ .Title }}</h2>
+  {{ .Content }}
+  {{- with .Pages }}
+  <ul class="rows">
+    {{- range . }}
+    <li><span class="row-main"><a href="{{ .RelPermalink }}">{{ .Title }}</a></span>{{ if not .Date.IsZero }}<span class="row-side">{{ .Date.Format "Jan 2, 2006" }}</span>{{ end }}</li>
+    {{- end }}
+  </ul>
+  {{- end }}
+  <p class="back"><a href="{{ site.Home.RelPermalink }}">&larr; Back to home</a></p>
+</section>
+{{ end }}

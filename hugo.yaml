@@ -1,0 +1,46 @@
+# Site address. This must be the final public https:// address of the site.
+# GitHub serves https://johnzijianma.github.io/ from a repository named
+# johnzijianma.github.io owned by the GitHub account "johnzijianma".
+# If the site moves (e.g. to a custom domain), change this one line to match.
+baseURL: "https://johnzijianma.github.io/"
+title: "John Zijian Ma"
+languageCode: en-us
+enableRobotsTXT: true
+disableKinds: ["taxonomy", "term", "RSS"]
+
+outputFormats:
+  llms:
+    mediaType: text/plain
+    baseName: llms
+    isPlainText: true
+    notAlternative: true
+
+outputs:
+  home: ["HTML", "llms"]
+
+params:
+  description: "Ph.D. Candidate, Department of Economics, Columbia University"
+  author: "John Zijian Ma"
+  position: "Ph.D. Candidate in Economics"
+  institution: "Columbia University"
+  institutionURL: "https://econ.columbia.edu/"
+  email: "zm2414@columbia.edu"
+  # Add a headshot by uploading it to static/images/ and setting this to
+  # "images/photo.jpg". Leave it empty to show no photo.
+  photo: ""
+  cv: "files/cv.pdf"
+  linkedin: "https://www.linkedin.com/in/john-zijian-ma/"
+
+  mysite:
+    # Footer credit line ("Created using GaryKing.org/mysite"). Off at the owner's request.
+    credit: false
+    # Invisible generator meta tag and schema.org Person block. Off at the owner's request.
+    discovery: false
+    design:
+      seed: "none (design quest skipped)"
+      concept: "Modeled on the owner's chosen reference site, https://myunghyunsong.github.io/: sticky left sidebar, Lato, white page with blue links."
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true

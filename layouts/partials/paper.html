@@ -1,0 +1,28 @@
+{{- /* Renders one paper. Context: dict "p" (paper) "id" (unique id) "open" (show abstract by default) */ -}}
+{{- $p := .p -}}
+{{- $href := "" -}}
+{{- with $p.pdf }}{{ $href = . | relURL }}{{ else }}{{ with $p.link }}{{ $href = . }}{{ end }}{{ end -}}
+{{- $statusLabels := dict "published" "Published" "accepted" "Accepted" "revise and resubmit" "Revise and Resubmit" "under review" "Under Review" "working paper" "Working Paper" "work in progress" "Work in Progress" -}}
+<article class="paper{{ if $p.job_market_paper }} jmp{{ end }}">
+  <h3>{{ with $href }}<a href="{{ . }}"{{ if not $p.pdf }} target="_blank" rel="noopener"{{ end }}>{{ $p.title }}</a>{{ else }}{{ $p.title }}{{ end }}</h3>
+  {{- with $p.coauthors }}
+  {{- $n := len . }}
+  <p class="meta">with {{ range $i, $a := . }}{{ if and (gt $i 0) (lt $i (sub $n 1)) }}, {{ else if and (gt $i 0) (eq $i (sub $n 1)) }}{{ if gt $n 2 }},{{ end }} and {{ end }}{{ $a }}{{ end }}</p>
+  {{- end }}
+  {{- $showStatus := and $p.status (not $p.venue) (not $p.job_market_paper) }}
+  {{- if or $p.venue $p.version $showStatus }}
+  <p class="meta">
+    {{- with $p.venue }}<em>{{ . }}</em>{{ with $p.year }}, {{ . }}{{ end }}{{ end }}
+    {{- if $showStatus }}<span class="status">{{ index $statusLabels $p.status | default $p.status }}</span>{{ end }}
+    {{- with $p.version }}{{ if or $p.venue $showStatus }} <span class="sep" aria-hidden="true">&middot;</span> {{ end }}Latest version: {{ . }}{{ end }}
+  </p>
+  {{- end }}
+  <p class="links">
+    {{- with $p.abstract }}<button type="button" class="abs-toggle" aria-expanded="{{ if $.open }}true{{ else }}false{{ end }}" aria-controls="{{ $.id }}-abstract" hidden>Abstract</button>{{ end }}
+    {{- with $p.pdf }}<a href="{{ . | relURL }}">Paper</a>{{ end }}
+    {{- with $p.link }}<a href="{{ . }}" target="_blank" rel="noopener">Link</a>{{ end }}
+  </p>
+  {{- with $p.abstract }}
+  <p class="abstract" id="{{ $.id }}-abstract">{{ . }}</p>
+  {{- end }}
+</article>

@@ -1,0 +1,48 @@
+{{ define "main" }}
+<section class="intro" id="about" aria-label="About">
+  {{ .Content }}
+</section>
+
+{{- $papers := site.Data.papers | default slice }}
+{{- $jmp := where $papers "job_market_paper" true }}
+{{- $others := where $papers "job_market_paper" "!=" true }}
+{{- $working := where $others "status" "in" (slice "working paper" "under review" "revise and resubmit" "work in progress") }}
+{{- $published := where $others "status" "in" (slice "published" "accepted") }}
+
+{{- if $papers }}
+<section id="research" aria-labelledby="research-heading">
+  {{- if $jmp }}
+  <h2 id="research-heading">Job Market Paper</h2>
+  {{- range $i, $p := $jmp }}
+  {{ partial "paper.html" (dict "p" $p "id" (printf "jmp-%d" $i) "open" true) }}
+  {{- end }}
+  {{- end }}
+
+  {{- with $working }}
+  <h2{{ if not $jmp }} id="research-heading"{{ end }}>Working Papers</h2>
+  {{- range $i, $p := . }}
+  {{ partial "paper.html" (dict "p" $p "id" (printf "wp-%d" $i) "open" false) }}
+  {{- end }}
+  {{- end }}
+
+  {{- with $published }}
+  <h2{{ if and (not $jmp) (not $working) }} id="research-heading"{{ end }}>Publications</h2>
+  {{- range $i, $p := . }}
+  {{ partial "paper.html" (dict "p" $p "id" (printf "pub-%d" $i) "open" false) }}
+  {{- end }}
+  {{- end }}
+</section>
+{{- end }}
+
+{{- with site.Data.projects }}
+<section id="software" aria-labelledby="software-heading">
+  <h2 id="software-heading">Software</h2>
+  <ul class="rows">
+    {{- range . }}
+    <li><span class="row-main"><a href="{{ .url }}" target="_blank" rel="noopener">{{ .name }}</a>{{ with .description }} &mdash; {{ . }}{{ end }}</span>{{ with .language }}<span class="row-side">{{ . }}</span>{{ end }}</li>
+    {{- end }}
+  </ul>
+</section>
+{{- end }}
+
+{{ end }}
